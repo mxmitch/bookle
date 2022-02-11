@@ -1,31 +1,21 @@
-import * as React from "react";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
+import React from "react";
+import BookList from "./BookList";
 
-function Copyright() {
+const App = () => {
   return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="">
-        Bookle
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
+    <div className="ui padded grid">
+      <div className="ui row">
+        <div className="column">
+          <h1 className="ui center aligned header">Bookle</h1>
+        </div>
+      </div>
+      <div className="ui row">
+        <div className="column">
+          <BookList />
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
-export default function App() {
-  return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-        <Typography align="center" component="h1" gutterBottom>
-          <h1>Bookle</h1>
-        </Typography>
-        <Copyright />
-      </Box>
-    </Container>
-  );
-}
+export default App;

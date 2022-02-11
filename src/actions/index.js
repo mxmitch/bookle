@@ -1,6 +1,6 @@
 //action creator
 
-export const selectBook = () => {
+export const selectBook = (book) => {
   // return an action
   return {
     type: "BOOK_SELECTED",
