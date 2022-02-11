@@ -1,5 +1,6 @@
 import React from "react";
 import BookList from "./BookList";
+import BookDetail from "./BookDetail";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <div className="ui row">
         <div className="column">
           <BookList />
+          <BookDetail />
         </div>
       </div>
     </div>

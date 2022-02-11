@@ -7,7 +7,9 @@ class BookList extends Component {
     return this.props.books.map((book) => {
       return (
         <div className="ui fluid card" key={book.title}>
-          <div className="content">{book.title}</div>
+          <div className="content">
+            <h2>{book.title}</h2>
+          </div>
           <button
             className="ui button"
             onClick={() => this.props.selectBook(book)}
