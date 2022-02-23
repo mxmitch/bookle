@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { selectBook } from "../actions";
+import { fetchPostsAndUsers } from "../actions";
+import UserHeader from "./UserHeader";
 
 class BookList extends Component {
+  componentDidMount() {
+    this.props.fetchPostsAndUsers();
+  }
+
   renderList() {
-    return this.props.books.map((book) => {
+    return this.props.posts.map((post) => {
       return (
-        <div className="ui fluid card" key={book.title}>
+        <div className="ui fluid card" key={post.title}>
           <div className="content">
-            <h2>{book.title}</h2>
+            <div className="description">
+              <UserHeader userId={post.userId} />
+              <h2>{post.title}</h2>
+              <p>{post.body}</p>
+            </div>
           </div>
-          <button
-            className="ui button"
-            onClick={() => this.props.selectBook(book)}
-          >
-            Select
-          </button>
         </div>
       );
     });
@@ -27,7 +30,7 @@ class BookList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { books: state.books };
+  return { posts: state.posts };
 };
 
-export default connect(mapStateToProps, { selectBook })(BookList);
+export default connect(mapStateToProps, { fetchPostsAndUsers })(BookList);
